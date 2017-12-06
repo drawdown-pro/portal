@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# config file with sensitive information in it
+config.json
+
+# next build
+.next
