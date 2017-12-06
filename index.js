@@ -1,3 +1,4 @@
+require('dotenv').config()
 const url = require('url')
 
 // Set up some globals.

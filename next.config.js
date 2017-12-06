@@ -1,14 +1,25 @@
 // This file is not going through babel transformation.
 // So, we write it in vanilla JS
 // (But you could use ES2015 features supported by your Node.js version)
+const { parsed: localEnv } = require('dotenv').config()
+const webpack = require('webpack')
 
 module.exports = {
   webpack: (config, { dev }) => {
+
+    // config.node = {
+    //   fs: 'empty'
+    // }
+
+    config.plugins.push(
+      new webpack.EnvironmentPlugin(localEnv)
+    )
+
     // Perform customizations to webpack config
     console.log(config.module.rules)
 
     config.module.rules.push({
-      exclude: /node_modules/,
+      exclude: [/node_modules/, /\.next/],
       test: /\.js$/,
       use: [
         {

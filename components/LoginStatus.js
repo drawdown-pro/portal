@@ -17,7 +17,7 @@ class LoginStatus extends React.Component {
   }
 
   componentDidMount () {
-    this.auth = new AuthService((profile) => {
+    this.auth = new AuthService(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_CLIENT_DOMAIN, (profile) => {
       this.setState({
         loggedIn: (profile != null),
         userProfile: profile
