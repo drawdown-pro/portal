@@ -29,7 +29,7 @@ class Index extends React.Component {
   render() {
   return <Grommet name='portal' theme={ hpe }>
     <Grid
-      rows={['small', 'medium', 'xsmall']}
+      rows={['small', 'flex', 'xsmall']}
       columns={['3/4', '1/4']}
       areas={[
         { name: 'header', start: [0, 0], end: [1, 0] },
@@ -69,9 +69,12 @@ class Index extends React.Component {
             <li>search</li>
             <li>submit new organization (no login required)</li>
           </ul>
-          <li>member profile</li>
+          <li>user profile</li>
           <li>organization profile</li>
-          <li>express interest/apply for a position</li>
+          <ul>
+            <li>list employment opportunities</li>
+            <li>express interest/apply for a position</li>
+          </ul>
           </ul>
         </div>
 

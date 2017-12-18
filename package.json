@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Portal site for core operations for Drawdown.PRO",
   "scripts": {
-    "dev": "next",
+    "dev": "node index.js",
     "build": "next build",
     "start": "next start",
     "test": "jest"

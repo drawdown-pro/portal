@@ -42,7 +42,7 @@ class LoginStatus extends React.Component {
   render () {
     if (this.state.userProfile) {
       let logout = this.logout.bind(this);
-      return <Menu label="Hello {this.state.userProfile.given_name}"
+      return <Menu label={`Hello ${this.state.userProfile.given_name}`}
           items={[
               {
                 label: 'Logout',
