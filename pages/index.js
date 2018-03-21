@@ -3,6 +3,16 @@ import { createStore } from "redux"
 import withRedux from "next-redux-wrapper"
 import { Box, Button, Grid, Grommet } from 'grommet'
 import { hpe } from 'grommet/themes';
+// import client from '../components/Apollo';
+import {
+  graphql,
+  ApolloProvider,
+  ApolloClient,
+  createNetworkInterface
+} from 'react-apollo';
+
+// CAN BE REMOVED
+import gql from 'graphql-tag';
 
 const reducer = (state = {foo: ''}, action) => {
     switch (action.type) {
@@ -17,6 +27,31 @@ const makeStore = (initialState, options) => {
     return createStore(reducer, initialState);
 };
 
+const TestList = ({ data: {loading, error, allTests }}) => {
+  if (loading) {
+    return <p>Loading ...</p>;
+  }
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
+  return <ul>
+    { allTests.map( e => <li key={e.id}>{e.foo} - {e.bar}</li> ) }
+  </ul>;
+}
+
+const testListQuery = gql`
+  query {
+    allTests {
+      id
+      foo
+      bar
+    }
+  }
+`
+
+const TestListWIthData = graphql(testListQuery)(TestList);
+
 
 class Index extends React.Component {
   static getInitialProps({store, isServer, pathname, query}) {
@@ -27,7 +62,7 @@ class Index extends React.Component {
   }
 
   render() {
-  return <Grommet name='portal' theme={ hpe }>
+  return <Grommet theme={hpe} name='portal'>
     <Grid
       rows={['small', 'flex', 'xsmall']}
       columns={['3/4', '1/4']}
@@ -55,7 +90,6 @@ class Index extends React.Component {
         background='light-1'
         gridArea='main'
       >
-
         <div>
           <Button onClick={Header.loginClick}>Login</Button>
           <div>Prop from Redux {this.props.foo}</div>

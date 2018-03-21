@@ -1,0 +1,50 @@
+
+.ddp-content-box {
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  font-family: 'Metric',Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.ddp-content-box .ddp-content-thumbnail {
+  background-color: #EEEEEE;
+  background-size: cover;
+}
+
+.ddp-content-box .ddp-content-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.ddp-content-header {
+  flex-grow: 1;
+  background-color: #01a982;
+  color: rgba(255,255,255,0.85);
+  padding: 2px 4px;
+  font-size: 1.2em;
+}
+
+.ddp-content-details {
+  flex-grow: 3;
+  background: #EEEEEE;
+  padding: 2px 4px;
+  flex-direction: column;
+}
+
+.ddp-content-footer {
+  flex-grow: 1;
+  background: #425563;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8em;
+  padding: 2px 4px;
+  justify-content: center;
+}
+
+.ddp-content-panel .ddp-details-button {
+  align-self: flex-end;
+  margin: 0px 4px;
+}

@@ -43,7 +43,7 @@ module.exports = {
         },
         {
           loader: 'sass-loader', options: {
-            includePaths: ['./node_modules', './node_modules/grommet/node_modules']
+            includePaths: ['./node_modules', './node_modules/grommet/node_modules', './static/scss']
           }
         }
       ]
@@ -53,7 +53,9 @@ module.exports = {
   },
   webpackDevMiddleware: config => {
     // Perform customizations to webpack dev middleware config
-
+    config.alias = config.alias || {}
+    config.alias['react-virtualized/List'] = 'react-virtualized/dist/es/List';
+    config.alias['react-virtualized/AutoSizer'] = 'react-virtualized/dist/es/AutoSizer';
     // Important: return the modified config
     return config
   }

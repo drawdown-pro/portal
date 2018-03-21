@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/drawdown-pro/portal#readme",
   "dependencies": {
-    "apollo-client": "^2.1.0",
+    "react-apollo": "^1.4.3",
     "auth0-lock": "^10.20.0",
     "dotenv": "^4.0.0",
     "fastify": "^0.35.5",
@@ -41,7 +41,9 @@
     "redux": "^3.7.2",
     "send": "^0.16.1",
     "styled-components": "^2.2.4",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "react-virtualized": "9.18.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-plugin-grommet": "^0.5.0",
